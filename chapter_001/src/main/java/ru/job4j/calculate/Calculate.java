@@ -1,12 +1,13 @@
-package ru.job4j;
+package ru.job4j.calculate;
 
 /**
- * Calculate.
- *
- * @author Petr Arsentev (parsentev@yandex.ru)
- * @version $Id$
- * @since 0.1
- */
+* Package for calculate task.
+* Class - данный класс выводит на экран "Hello World"
+* @author Evgeny Butov (mailto:but87@mail.ru)
+* @version 1
+* @since 24.07.2018
+*/
+
 public class Calculate {
     /**
      * Main.
