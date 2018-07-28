@@ -1,7 +1,7 @@
 package ru.job4j.condition;
 
 /**
- * Package for calculate task.
+ * Package for condition task.
  * Class - point cordinat X and Y.
  *
  * @author Evgeny Butov (mailto:but87@mail.ru)
