@@ -17,7 +17,7 @@ public class CounterTest {
      * Test
      */
     @Test
-    public void whenStartAndFinishSum(){
+    public void whenStartAndFinishSum() {
         Counter counter = new Counter();
         int result = counter.add(1, 10);
         assertThat(result, is(30));
