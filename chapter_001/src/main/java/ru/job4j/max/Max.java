@@ -19,4 +19,14 @@ public class Max {
         return first > second ? first : second;
     }
 
+    /**
+     * Опеределние максимального числа.
+     *
+     * @param first,second,third - значения.
+     * @return максимальное число.
+     */
+    public int maxThird(int first, int second, int third){
+        int tempOne = this.max(first, second);
+        return this.max(tempOne, third);
+    }
 }

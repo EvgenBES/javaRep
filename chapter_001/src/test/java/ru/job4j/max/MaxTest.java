@@ -22,4 +22,11 @@ public class MaxTest {
         int result = maxim.max(1, 2);
         assertThat(result, is(2));
     }
+
+    @Test
+    public void whenFirstLessSecondOrThird() {
+        Max maxim = new Max();
+        int result = maxim.maxThird(11, 9, 8);
+        assertThat(result, is(11));
+    }
 }
