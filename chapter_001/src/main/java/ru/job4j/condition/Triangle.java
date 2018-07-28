@@ -63,14 +63,6 @@ public class Triangle {
      * @return true or false;
      */
     private boolean exist(double ab, double ac, double bc) {
-        //если точка ab  = 0 то другие 2 точки долбы ныбть больше 0, что бы построить треугольник и т.д.
-        if (ab >= 0 && ac > 0 && bc > 0) {
-            return true;
-        } else if (ac >= 0 && ab > 0 && bc > 0) {
-            return true;
-        } else if (bc >= 0 && ab > 0 && ac > 0) {
-            return true;
-        }
-        return false;
+        return ((ab < bc + ac) || (bc < ab + ac) || (ac < ab + bc));
     }
 }
