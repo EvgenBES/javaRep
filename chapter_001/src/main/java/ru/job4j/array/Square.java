@@ -12,6 +12,7 @@ package ru.job4j.array;
 public class Square {
     /**
      * Заполнить массив степенями чисел.
+     *
      * @param bound размер массива.
      * @return массив с числами возведённые в квадрат.
      */
