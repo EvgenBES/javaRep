@@ -1,5 +1,7 @@
 package ru.job4j.array;
 
+import java.util.Arrays;
+
 /**
  * Package for condition array.
  *
@@ -11,30 +13,48 @@ package ru.job4j.array;
 public class BubbleSort {
     /**
      * Метод сортировки чисел от маленького до большого.
+     *
      * @param array подаваемый массив.
      * @return отсортированный массив от малого до максимального числа.
      */
 
     public int[] sort(int[] array) {
-        boolean position = false;
 
-        do {
-            for (int i = 0; i != array.length - 1; i++) {
-                int temp;
-                int steep = i + 1;
-                position = true;
-                if (array[i] > array[steep]) {
-                    temp = array[i];
-                    array[i] = array[steep];
-                    array[steep] = temp;
-                    position = false;
+
+/**
+
+ boolean position = true;
+ int temp;
+
+     while (position) {
+         position = false;
+
+         for (int i = 0; i != array.length - 1; i++) {
+                 if (array[i] > array[i + 1]) {
+                 temp = array[i];
+                 array[i] = array[i + 1];
+                 array[i + 1] = temp;
+                 position = true;
+             }
+         }
+     }
+ */
+
+
+        for (int i = 0; i < array.length; i++) {
+            int numb = array[i];
+
+            for (int j = i - 1; j >= 0; j--) {
+                int leftNumb = array[j];
+                if (numb < leftNumb) {
+                    array[j + 1] = leftNumb;
+                    array[j] = numb;
+                } else {
                     break;
                 }
             }
-
-        } while (!position);
+        }
 
         return array;
     }
-
 }
