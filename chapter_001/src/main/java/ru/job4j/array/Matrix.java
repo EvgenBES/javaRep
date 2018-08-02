@@ -13,11 +13,8 @@ public class Matrix {
         int[][] table = new int[size][size];
 
         for (int i = 0; i != size ; i++) {
-            int numb1;
-            int numb2 = 1 + i;
             for (int j = 0; j != size ; j++) {
-                numb1 = 1 + j;
-                table[i][j] = numb1 * numb2;
+                table[i][j] = (i + 1) * (j + 1);
             }
         }
         return table;
