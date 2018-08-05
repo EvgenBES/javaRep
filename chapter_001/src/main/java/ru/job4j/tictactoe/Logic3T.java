@@ -1,5 +1,12 @@
 package ru.job4j.tictactoe;
 
+/**
+ * Package for tictactoe.
+ *
+ * @author Evgeny Butov (mailto:but87@mail.ru)
+ * @version 1
+ * @since 02.08.2018
+ */
 
 public class Logic3T {
     private final Figure3T[][] table;

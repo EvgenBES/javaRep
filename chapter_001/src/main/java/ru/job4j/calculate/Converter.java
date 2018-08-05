@@ -1,8 +1,13 @@
 package ru.job4j.calculate;
 
 /**
- * Корвертор валюты.
+ * Package for calculate.
+ *
+ * @author Evgeny Butov (mailto:but87@mail.ru)
+ * @version 1
+ * @since 28.07.2018
  */
+
 public class Converter {
     private double result;
 

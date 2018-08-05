@@ -17,12 +17,12 @@ public class Square {
      * @return массив с числами возведённые в квадрат.
      */
     public int[] calculate(int bound) {
-        int[] rst = new int[bound];
-        for (int i = 0; i != rst.length; i++) {
+        int[] result = new int[bound];
+        for (int i = 0; i != result.length; i++) {
             double a = 2;
             double b = 1 + i;
-            rst[i] = (int) Math.pow(b, a);
+            result[i] = (int) Math.pow(b, a);
         }
-        return rst;
+        return result;
     }
 }

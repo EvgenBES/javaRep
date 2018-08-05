@@ -16,6 +16,15 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
+
+/**
+ * Package for tictactoe.
+ *
+ * @author Evgeny Butov (mailto:but87@mail.ru)
+ * @version 1
+ * @since 02.08.2018
+ */
+
 public class TicTacToe extends Application {
     private static final String JOB4J = "Крестики-нолики www.job4j.ru";
     private final int size = 3;

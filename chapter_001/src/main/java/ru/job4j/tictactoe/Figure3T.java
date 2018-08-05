@@ -1,6 +1,13 @@
 package ru.job4j.tictactoe;
-
 import javafx.scene.shape.Rectangle;
+
+/**
+ * Package for tictactoe.
+ *
+ * @author Evgeny Butov (mailto:but87@mail.ru)
+ * @version 1
+ * @since 02.08.2018
+ */
 
 public class Figure3T extends Rectangle {
     private boolean markX = false;

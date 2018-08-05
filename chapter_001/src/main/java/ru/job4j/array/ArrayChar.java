@@ -16,10 +16,10 @@ public class ArrayChar {
     }
 
     /**
-     * Проверяет. что слово начинается с префикса.
+     * Проверяет что слово начинается с префикса.
      *
      * @param prefix префикс.
-     * @return если слово начинаеться с префикса
+     * @return если слово начинаеться с префикса - true если нет то false.
      */
     public boolean startWith(String prefix) {
         boolean result = true;

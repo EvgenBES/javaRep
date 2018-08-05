@@ -1,7 +1,13 @@
 package ru.job4j.calculate;
 
 /**
- * Программа расчета идеального веса.
+ * Package for calculate.
+ *
+ * Определение идеальных весов мужчины и женщины.
+ *
+ * @author Evgeny Butov (mailto:but87@mail.ru)
+ * @version 1
+ * @since 28.07.2018
  */
 
 public class Fit {

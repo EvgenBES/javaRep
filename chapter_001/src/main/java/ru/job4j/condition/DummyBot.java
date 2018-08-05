@@ -10,18 +10,18 @@ package ru.job4j.condition;
  */
 public class DummyBot {
     /**
-     * Отвечает на вопросы.
+     * Бот отвечает на вопросы.
      *
      * @param question Вопрос от клиента.
-     * @return Ответ.
+     * @return Ответ бота.
      */
     public String answer(String question) {
-        String rls = "Это ставит меня в тупик. Спросите другой вопрос.";
+        String answerBot = "Это ставит меня в тупик. Спросите другой вопрос.";
         if ("Привет, Бот.".equals(question)) {
-            rls = "Привет, умник.";
+            answerBot = "Привет, умник.";
         } else if ("Пока.".equals(question)) {
-            rls = "До скорой встречи.";
+            answerBot = "До скорой встречи.";
         }
-        return rls;
+        return answerBot;
     }
 }

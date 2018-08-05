@@ -19,42 +19,19 @@ public class BubbleSort {
      */
 
     public int[] sort(int[] array) {
-
-
-/**
-
- boolean position = true;
- int temp;
-
-     while (position) {
-         position = false;
-
-         for (int i = 0; i != array.length - 1; i++) {
-                 if (array[i] > array[i + 1]) {
-                 temp = array[i];
-                 array[i] = array[i + 1];
-                 array[i + 1] = temp;
-                 position = true;
-             }
-         }
-     }
- */
-
-
         for (int i = 0; i < array.length; i++) {
-            int numb = array[i];
+            int temp = array[i];
 
             for (int j = i - 1; j >= 0; j--) {
                 int leftNumb = array[j];
-                if (numb < leftNumb) {
+                if (temp < leftNumb) {
                     array[j + 1] = leftNumb;
-                    array[j] = numb;
+                    array[j] = temp;
                 } else {
                     break;
                 }
             }
         }
-
         return array;
     }
 }
