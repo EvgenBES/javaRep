@@ -23,9 +23,8 @@ public class Tracker {
 
     public Item[] getAll() {
         return Arrays.copyOf(this.items, this.position);
-//        return this.items;
-
     }
+
 
     public void replace(String id, Item item) {
         for (int i = 0; i < this.position; i++) {
@@ -37,6 +36,7 @@ public class Tracker {
         }
     }
 
+
     public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
@@ -47,6 +47,7 @@ public class Tracker {
         }
         return result;
     }
+
 
     public void delete(String id) {
         for (int i = 0; i < this.position; i++) {
