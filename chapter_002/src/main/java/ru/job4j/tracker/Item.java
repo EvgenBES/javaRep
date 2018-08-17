@@ -7,9 +7,9 @@ public class Item {
     private long create;
 
 
-    public Item(String name, String description, long create) {
+    public Item(String name, String desc, long create) {
         this.name = name;
-        this.description = description;
+        this.description = desc;
         this.create = create;
     }
 
