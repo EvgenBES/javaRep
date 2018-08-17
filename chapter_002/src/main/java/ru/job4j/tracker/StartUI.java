@@ -44,31 +44,31 @@ public class StartUI {
             String answer = this.input.ask("Введите пункт меню : ");
             switch (answer) {
                 case ADD:
+                    System.out.println(" ");
                     this.createItem();
                     break;
                 case SHOW_ALL_ITEM:
                     System.out.println(" ");
-                    System.out.println("--- Данный пункт в разработке ---");
-                    System.out.println(" ");
+                    this.showAllItem();
                     break;
                 case EDIT_ITEM:
                     System.out.println(" ");
-                    System.out.println("--- Данный пункт в разработке ---");
+                    editItem();
                     System.out.println(" ");
                     break;
                 case DELETE_ITEM:
                     System.out.println(" ");
-                    System.out.println("--- Данный пункт в разработке ---");
+                    deleteItem();
                     System.out.println(" ");
                     break;
                 case FIND_ITEM_ID:
                     System.out.println(" ");
-                    System.out.println("--- Данный пункт в разработке ---");
+                    findByItemId();
                     System.out.println(" ");
                     break;
                 case FIND_ITEM_NAME:
                     System.out.println(" ");
-                    System.out.println("--- Данный пункт в разработке ---");
+                    findByItemName();
                     System.out.println(" ");
                     break;
                 case EXIT:
@@ -102,6 +102,75 @@ public class StartUI {
     }
 
     /**
+     * Метод отображения всех заявок.
+     */
+    private void showAllItem() {
+        Item[] allItem = this.tracker.getAll();
+        System.out.println("------------ Список всех заявок --------------");
+        showAllFindItem(allItem);
+    }
+
+    /**
+     * Метод изменения заявки.
+     */
+    private void editItem() {
+        System.out.println("------------ Изменить заявку --------------");
+        String id = this.input.ask("Введите номер заявки: ");
+        String name = this.input.ask("Введите новое имя заявки: ");
+        String desc = this.input.ask("Введите новое описание заявки: ");
+        long creat = new Date().getTime();
+
+        Item item = new Item(name, desc, creat);
+
+        this.tracker.replace(id, item);
+        System.out.println(" ");
+        System.out.println("------------ Заявка изменина! Новый ID заявки : " + item.getId() + "-----------");
+        System.out.println("Имя заявки: " + item.getName());
+        System.out.println("Описание заявки: " + item.getDescription());
+        System.out.println(" ");
+    }
+
+    /**
+     * Метод удаление заявки по ID.
+     */
+    private void deleteItem() {
+        System.out.println("------------ Удаление заявки --------------");
+        String id = this.input.ask("Введите номер удаляемой заявки:");
+
+        this.tracker.delete(id);
+        System.out.println(" ");
+        System.out.println("------------ Заявка норме " + id + " была удалена! -----------");
+        System.out.println(" ");
+    }
+
+
+    /**
+     * Метод поиска заявки по ID.
+     */
+    private void findByItemId() {
+        System.out.println("------------ Поиск заявки по ID --------------");
+        String id = this.input.ask("Введите номер заявки:");
+
+        Item item = this.tracker.findById(id);
+        System.out.println("ID заявки: " + item.getId());
+        System.out.println("Имя заявки: " + item.getName());
+        System.out.println("Описание заявки: " + item.getDescription());
+        System.out.println(" ");
+    }
+
+    /**
+     * Метод поиска заявки по Name.
+     */
+    private void findByItemName() {
+        System.out.println("------------ Поиск заявки по имени заявки --------------");
+        String name = this.input.ask("Введите имя заявки:");
+
+        Item[] item = this.tracker.findByName(name);
+        showAllFindItem(item);
+    }
+
+
+    /**
      * Отображаемое меню.
      */
     private void showMenu() {
@@ -115,6 +184,22 @@ public class StartUI {
         System.out.println(" 7. Exit Program");
     }
 
+
+    /**
+     * Метод отображение массива найденных заявок
+     *
+     * @param item массив заявок
+     */
+    private void showAllFindItem(Item[] item) {
+        for (int i = 0; i != item.length; i++) {
+            System.out.println("ID заявки: " + item[i].getId());
+            System.out.println("Имя заявки: " + item[i].getName());
+            System.out.println("Описание заявки: " + item[i].getDescription());
+            System.out.println(" ");
+        }
+    }
+
+
     /**
      * Запускт программы.
      *
@@ -124,3 +209,5 @@ public class StartUI {
         new StartUI(new ConsoleInput(), new Tracker()).init();
     }
 }
+
+
