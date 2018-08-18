@@ -16,24 +16,29 @@ public class Item {
     public String getName() {
         return this.name;
     }
+
     public String getDescription() {
         return this.description;
     }
+
     public long getCreate() {
         return this.create;
     }
+
     public String getId() {
         return this.id;
     }
+
     public void setId(String id) {
         this.id = id;
     }
 
     public String toString() {
-       return "ID заявки: " + getId() + "\n" +
-               "Имя заявки: " + getName() + "\n" +
-               "Описание заявки: " + getDescription() + "\n" +
-               " ";
+        String ln = System.lineSeparator();
+        return "ID заявки: " + getId() + ln +
+                "Имя заявки: " + getName() + ln +
+                "Описание заявки: " + getDescription() + ln +
+                " ";
     }
 }
 
