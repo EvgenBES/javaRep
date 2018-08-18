@@ -26,14 +26,19 @@ public class Tracker {
     }
 
 
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean result = false;
+
         for (int i = 0; i < this.position; i++) {
             if (this.items[i] != null && this.items[i].getId().equals(id)) {
                 item.setId(id);
                 items[i] = item;
+                result = true;
                 break;
             }
         }
+
+        return result;
     }
 
 
@@ -49,14 +54,18 @@ public class Tracker {
     }
 
 
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean result = false;
+
         for (int i = 0; i < this.position; i++) {
             if (this.items[i] != null && this.items[i].getId().equals(id)) {
                 System.arraycopy(this.items, i + 1, this.items, i, this.position - i);
                 this.position--;
+                result = true;
                 break;
             }
         }
+        return result;
     }
 
 

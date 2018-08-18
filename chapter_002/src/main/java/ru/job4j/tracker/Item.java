@@ -28,4 +28,12 @@ public class Item {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String toString() {
+       return "ID заявки: " + getId() + "\n" +
+               "Имя заявки: " + getName() + "\n" +
+               "Описание заявки: " + getDescription() + "\n" +
+               " ";
+    }
 }
+
