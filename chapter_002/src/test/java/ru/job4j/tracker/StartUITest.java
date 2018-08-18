@@ -1,31 +1,44 @@
 package ru.job4j.tracker;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class StartUITest {
     private Tracker tracker = new Tracker();
+    private final PrintStream stdout = System.out;
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    @Before
+    public void loadOutput() {
+        System.setOut(new PrintStream(this.out));
+    }
+
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
+    }
+
 
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
-        Input input = new StubInput(new String[]{"1", "test name", "desc", "7"});   //создаём StubInput с последовательностью действий
-        new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.getAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        Input input = new StubInput(new String[]{"1", "test name", "desc", "7"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.getAll()[0].getName(), is("test name"));
     }
 
     @Test
     public void whenUpdateThenTrackerHasUpdatedValue() {
-        //Напрямую добавляем заявку
         Item item = tracker.add(new Item("test name", "desc", 1239594));
-        //создаём StubInput с последовательностью действий(производим замену заявки)
         Input input = new StubInput(new String[]{"3", item.getId(), "test replace", "заменили заявку", "7"});
-        // создаём StartUI и вызываем метод init()
         new StartUI(input, tracker).init();
-        // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
         assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
-
     }
 
     @Test
@@ -58,7 +71,7 @@ public class StartUITest {
             result = false;
         }
 
-        assertThat(true,  is(result));
+        assertThat(true, is(result));
     }
 
 
@@ -91,7 +104,7 @@ public class StartUITest {
             result = false;
         }
 
-        assertThat(true,  is(result));
+        assertThat(true, is(result));
     }
 
 
@@ -113,7 +126,7 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         Item res = tracker.findById(item.getId());
 
-        assertThat(res.getName(),  is("ItemName99"));
+        assertThat(res.getName(), is("ItemName99"));
     }
 
 
@@ -134,6 +147,44 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         Item[] res = tracker.findByName("ItemName99");
 
-        assertThat(res.length,  is(1));
+        assertThat(res.length, is(1));
     }
+
+
+    @Test
+    public void whenChoseShowMenuThenSawAllMenu() {
+        Input input = new StubInput(new String[]{"7"});
+        Tracker tracker = new Tracker();
+        new StartUI(input, tracker).init();
+
+        assertThat(new String(this.out.toByteArray()),
+                is(
+                        new StringBuilder()
+                                .append("Меню:")
+                                .append(System.lineSeparator())
+                                .append(" 1. Add new Item")
+                                .append(System.lineSeparator())
+                                .append(" 2. Show all items")
+                                .append(System.lineSeparator())
+                                .append(" 3. Edit item")
+                                .append(System.lineSeparator())
+                                .append(" 4. Delete item")
+                                .append(System.lineSeparator())
+                                .append(" 5. Find item by Id")
+                                .append(System.lineSeparator())
+                                .append(" 6. Find items by name")
+                                .append(System.lineSeparator())
+                                .append(" 7. Exit Program")
+                                .append(System.lineSeparator())
+                                .append(" ")
+                                .append(System.lineSeparator())
+                                .append("--- Вы выбрали выход! Прощайте. ---")
+                                .append(System.lineSeparator())
+                                .append(" ")
+                                .append(System.lineSeparator())
+                                .toString()
+                )
+        );
+    }
+
 }
