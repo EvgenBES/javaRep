@@ -5,7 +5,7 @@ package ru.job4j.pseudo;
  * @version 1.0
  * @since 18.08.2018
  */
-public class Square implements Shape{
+public class Square implements Shape {
     @Override
     public String draw() {
         StringBuilder pic = new StringBuilder();

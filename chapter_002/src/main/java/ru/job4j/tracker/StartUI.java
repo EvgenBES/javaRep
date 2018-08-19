@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Package for tracker.
@@ -38,52 +40,16 @@ public class StartUI {
      * Основой цикл программы.
      */
     public void init() {
-        boolean exit = false;
-        while (!exit) {
-            this.showMenu();
-            String answer = this.input.ask("Введите пункт меню : ");
-            switch (answer) {
-                case ADD:
-                    System.out.println(" ");
-                    this.createItem();
-                    break;
-                case SHOW_ALL_ITEM:
-                    System.out.println(" ");
-                    this.showAllItem();
-                    break;
-                case EDIT_ITEM:
-                    System.out.println(" ");
-                    editItem();
-                    System.out.println(" ");
-                    break;
-                case DELETE_ITEM:
-                    System.out.println(" ");
-                    deleteItem();
-                    System.out.println(" ");
-                    break;
-                case FIND_ITEM_ID:
-                    System.out.println(" ");
-                    findByItemId();
-                    System.out.println(" ");
-                    break;
-                case FIND_ITEM_NAME:
-                    System.out.println(" ");
-                    findByItemName();
-                    System.out.println(" ");
-                    break;
-                case EXIT:
-                    System.out.println(" ");
-                    System.out.println("--- Вы выбрали выход! Прощайте. ---");
-                    System.out.println(" ");
-                    exit = true;
-                    break;
-                default:
-                    System.out.println(" ");
-                    System.out.println("----- Неверно выбран пункт меню! Попробуйте снова. -----");
-                    System.out.println(" ");
-                    break;
-            }
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
+        menu.fillActions();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
         }
+        do {
+            menu.show();
+            menu.select(input.ask("select:", range) - 1);
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
     /**

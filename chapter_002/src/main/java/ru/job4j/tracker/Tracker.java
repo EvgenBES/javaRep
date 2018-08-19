@@ -78,8 +78,10 @@ public class Tracker {
                 resultId++;
             }
         }
-        return resultName = Arrays.copyOf(resultName, resultId);
+        return Arrays.copyOf(resultName, resultId);
     }
+
+
 
 
 }

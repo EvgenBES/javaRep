@@ -35,10 +35,10 @@ public class Item {
 
     public String toString() {
         String ln = System.lineSeparator();
-        return "ID заявки: " + getId() + ln +
-                "Имя заявки: " + getName() + ln +
-                "Описание заявки: " + getDescription() + ln +
-                " ";
+        return "ID заявки: " + getId() + ln
+                + "Имя заявки: " + getName() + ln
+                + "Описание заявки: " + getDescription() + ln
+                + " ";
     }
 }
 

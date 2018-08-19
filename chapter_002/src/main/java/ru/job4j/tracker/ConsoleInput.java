@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleInput implements Input {
@@ -11,4 +12,11 @@ public class ConsoleInput implements Input {
         System.out.println(question);
         return scanner.next();
     }
+
+    @Override
+    public int ask(String question, List<Integer> range) {
+        System.out.println(question);
+        return Integer.valueOf(scanner.next());
+    }
+
 }
