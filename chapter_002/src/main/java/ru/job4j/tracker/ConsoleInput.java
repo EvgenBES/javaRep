@@ -16,7 +16,19 @@ public class ConsoleInput implements Input {
     @Override
     public int ask(String question, List<Integer> range) {
         System.out.println(question);
-        return Integer.valueOf(scanner.next());
+        int key = Integer.valueOf(scanner.next());
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Неверно выбран пункт меню");
+        }
     }
 
 }
