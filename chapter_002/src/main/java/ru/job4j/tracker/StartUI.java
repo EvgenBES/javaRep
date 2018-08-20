@@ -11,6 +11,7 @@ package ru.job4j.tracker;
 public class StartUI {
     private final Input input;
     private final Tracker tracker;
+    private boolean working = true;
 
     /**
      * Конструтор инициализирующий поля.
@@ -28,11 +29,11 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        menu.fillActions();
+        menu.fillActions(this);
         do {
             menu.show();
             menu.select(input.ask("select:", menu.getRange()));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+        } while (this.working);
     }
 
 
@@ -43,6 +44,10 @@ public class StartUI {
      */
     public static void main(String[] args) {
         new StartUI(new ValidateInput(new ConsoleInput()), new Tracker()).init();
+    }
+
+    public void stop() {
+        this.working = false;
     }
 }
 
