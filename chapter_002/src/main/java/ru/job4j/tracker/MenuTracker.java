@@ -138,4 +138,16 @@ public class MenuTracker {
             System.out.println("------------ Заявка норме " + id + " была удалена! -----------");
         }
     }
+
+
+    public void initMenu() {
+        List<Integer> range = new ArrayList<>();
+        for (int i = 0; i < getActionsLentgh(); i++) {
+            range.add(i);
+        }
+        do {
+            show();
+            select(input.ask("select:", range));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+    }
 }
