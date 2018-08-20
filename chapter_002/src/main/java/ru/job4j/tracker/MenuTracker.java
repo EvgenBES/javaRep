@@ -140,14 +140,11 @@ public class MenuTracker {
     }
 
 
-    public void initMenu() {
+    public List<Integer> getRange() {
         List<Integer> range = new ArrayList<>();
         for (int i = 0; i < getActionsLentgh(); i++) {
-            range.add(i);
+            range.add(actions.get(i).key());
         }
-        do {
-            show();
-            select(input.ask("select:", range));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+        return range;
     }
 }
