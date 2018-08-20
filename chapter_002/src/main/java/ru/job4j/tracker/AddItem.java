@@ -7,11 +7,10 @@ import java.util.Date;
  * @version 1.0
  * @since 19.08.2018
  */
-public class AddItem implements UserAction {
+public class AddItem extends BaseAction {
 
-    @Override
-    public int key() {
-        return 1;
+    protected AddItem(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -20,18 +19,6 @@ public class AddItem implements UserAction {
         String name = input.ask("Введите имя заявки :");
         String desc = input.ask("Введите описание заявки :");
         long creat = new Date().getTime();
-
-        Item item = new Item(name, desc, creat);
-        tracker.add(item);
-        System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
-        System.out.println("New Item with Name: " + item.getName());
-        System.out.println("New Item with Description: " + item.getDescription());
-        System.out.println(" ");
+        tracker.add(new Item(name, desc, creat));
     }
-
-    @Override
-    public String info() {
-        return " 1. Add new Item.";
-    }
-
 }
