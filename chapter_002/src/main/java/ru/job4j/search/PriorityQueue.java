@@ -22,11 +22,12 @@ public class PriorityQueue {
             tasks.add(task);
         } else {
             for (int i = 0; i <= tasks.size() - 1; i++) {
-                if (tasks.get(i).getPriority() > task.getPriority()) {
+                if (tasks.get(i).getPriority() >= task.getPriority()) {
                     tasks.add(i, task);
                     break;
-                } else if (tasks.getLast().getPriority() < task.getPriority()) {
+                } else if (tasks.getLast().getPriority() <= task.getPriority()) {
                     tasks.addLast(task);
+                    break;
                 }
             }
         }
