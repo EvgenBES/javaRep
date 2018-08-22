@@ -27,10 +27,10 @@ public class PhoneDictionary {
         String lowerCaseKey = key.toLowerCase();
 
         for (Person person : persons) {
-            if (person.getSurname().toLowerCase().contains(lowerCaseKey) ||
-                    person.getName().toLowerCase().contains(lowerCaseKey) ||
-                    person.getAddress().toLowerCase().contains(lowerCaseKey) ||
-                    person.getPhone().contains(key)) {
+            if (person.getSurname().toLowerCase().contains(lowerCaseKey)
+                    || person.getName().toLowerCase().contains(lowerCaseKey)
+                    || person.getAddress().toLowerCase().contains(lowerCaseKey)
+                    || person.getPhone().contains(key)) {
                 result.add(person);
             }
         }
