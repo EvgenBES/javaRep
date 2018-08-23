@@ -1,4 +1,8 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
+
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Tracker;
 
 import java.util.Date;
 
@@ -9,7 +13,7 @@ import java.util.Date;
  */
 public class AddItem extends BaseAction {
 
-    protected AddItem(int key, String name) {
+    public AddItem(int key, String name) {
         super(key, name);
     }
 

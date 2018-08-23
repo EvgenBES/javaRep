@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import ru.job4j.tracker.action.*;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,8 +25,12 @@ class FindItemsByName extends BaseAction {
         String name = input.ask("Введите имя заявки:");
 
         Item[] item = tracker.findByName(name);
-        for (int i = 0; i != item.length; i++) {
-            System.out.println(item[i].toString());
+        if (item.length != 0) {
+            for (int i = 0; i != item.length; i++) {
+                System.out.println(item[i].toString());
+            }
+        } else {
+            System.out.println("------------ Заявка с данным именим не найдена --------------");
         }
     }
 }
@@ -107,17 +113,20 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             System.out.println("------------ Изменить заявку --------------");
             String id = input.ask("Введите номер заявки: ");
-            String name = input.ask("Введите новое имя заявки: ");
-            String desc = input.ask("Введите новое описание заявки: ");
-            long creat = new Date().getTime();
 
-            Item item = new Item(name, desc, creat);
+            if (tracker.findById(id) != null) {
+                String name = input.ask("Введите новое имя заявки: ");
+                String desc = input.ask("Введите новое описание заявки: ");
+                long creat = new Date().getTime();
 
-            if (!tracker.replace(id, item)) {
+                Item item = new Item(name, desc, creat);
+                tracker.replace(id, item);
+
+                System.out.println("------------ Заявка изменина! Новые данные заявки: -----------");
+                System.out.println(item.toString());
+            } else {
                 System.out.println("------------ Заявка норме " + id + " не найдена! -----------");
             }
-            System.out.println("------------ Заявка изменина! Новые данные заявки: -----------");
-            System.out.println(item.toString());
         }
 
     }
@@ -135,8 +144,9 @@ public class MenuTracker {
 
             if (!tracker.delete(id)) {
                 System.out.println("------------ Заявка норме " + id + " не найдена! -----------");
+            } else {
+                System.out.println("------------ Заявка норме " + id + " была удалена! -----------");
             }
-            System.out.println("------------ Заявка норме " + id + " была удалена! -----------");
         }
     }
 

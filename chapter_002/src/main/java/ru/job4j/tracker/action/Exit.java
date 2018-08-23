@@ -1,4 +1,9 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
+
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.StartUI;
+import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.action.BaseAction;
 
 /**
  * @author Evgeny Butov (mailto:but87@mail.ru)
@@ -8,7 +13,7 @@ package ru.job4j.tracker;
 public class Exit extends BaseAction {
     private final StartUI ui;
 
-    protected Exit(int key, String name, StartUI ui) {
+    public Exit(int key, String name, StartUI ui) {
         super(key, name);
         this.ui = ui;
     }

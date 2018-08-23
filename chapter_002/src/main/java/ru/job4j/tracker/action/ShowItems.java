@@ -1,4 +1,9 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.action;
+
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.action.BaseAction;
 
 /**
  * @author Evgeny Butov (mailto:but87@mail.ru)
@@ -7,7 +12,7 @@ package ru.job4j.tracker;
  */
 public class ShowItems extends BaseAction {
 
-    protected ShowItems(int key, String name) {
+    public ShowItems(int key, String name) {
         super(key, name);
     }
 
