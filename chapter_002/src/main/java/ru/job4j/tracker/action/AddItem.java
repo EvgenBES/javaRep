@@ -23,6 +23,7 @@ public class AddItem extends BaseAction {
         String name = input.ask("Введите имя заявки :");
         String desc = input.ask("Введите описание заявки :");
         long creat = new Date().getTime();
+
         tracker.add(new Item(name, desc, creat));
     }
 }

@@ -5,6 +5,8 @@ import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
 import ru.job4j.tracker.action.BaseAction;
 
+import java.util.List;
+
 /**
  * @author Evgeny Butov (mailto:but87@mail.ru)
  * @version 1.0
@@ -18,14 +20,14 @@ public class ShowItems extends BaseAction {
 
     @Override
     public void execute(Input input, Tracker tracker) {
-        Item[] allItem = tracker.getAll();
+        List<Item> allItem = tracker.getAll();
         System.out.println("------------ Список всех заявок --------------");
         showAllFindItem(allItem);
     }
 
-    private void showAllFindItem(Item[] item) {
-        for (int i = 0; i != item.length; i++) {
-            System.out.println(item[i].toString());
+    private void showAllFindItem(List<Item> item) {
+        for (Item item1 : item) {
+            System.out.println(item1.toString());
         }
     }
 }

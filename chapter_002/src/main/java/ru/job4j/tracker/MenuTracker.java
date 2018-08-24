@@ -24,10 +24,10 @@ class FindItemsByName extends BaseAction {
         System.out.println("------------ Поиск заявки по имени заявки --------------");
         String name = input.ask("Введите имя заявки:");
 
-        Item[] item = tracker.findByName(name);
-        if (item.length != 0) {
-            for (int i = 0; i != item.length; i++) {
-                System.out.println(item[i].toString());
+        List<Item> item = tracker.findByName(name);
+        if (item.size() != 0) {
+            for (int i = 0; i != item.size() - 1; i++) {
+                System.out.println(item.get(i).toString());
             }
         } else {
             System.out.println("------------ Заявка с данным именим не найдена --------------");
