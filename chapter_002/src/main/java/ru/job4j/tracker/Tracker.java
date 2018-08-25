@@ -74,15 +74,6 @@ public class Tracker {
                 resultName.add(item);
             }
         }
-
-
-//
-//        for (int i = 0; i != this.items.size() - 1; i++) {
-//            if (this.items.get(i) != null && this.items.get(i).getName().equals(key)) {
-//
-//                resultId++;
-//            }
-//        }
         return resultName;
     }
 

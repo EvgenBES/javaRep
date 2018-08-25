@@ -26,7 +26,7 @@ class FindItemsByName extends BaseAction {
 
         List<Item> item = tracker.findByName(name);
         if (item.size() != 0) {
-            for (int i = 0; i != item.size() - 1; i++) {
+            for (int i = 0; i != item.size(); i++) {
                 System.out.println(item.get(i).toString());
             }
         } else {
