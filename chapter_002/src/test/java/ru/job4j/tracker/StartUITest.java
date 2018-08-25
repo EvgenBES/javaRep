@@ -364,4 +364,256 @@ public class StartUITest {
                 )
         );
     }
+
+
+    @Test
+    public void whenChoseEditItemThenSawNewEditItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("startName", "startDesc", 1239594);
+        tracker.add(item);
+        item.setId("12345");
+        Input input = new StubInput(new String[]{"2", "12345", "testName", "testDesc", "6"});
+        new StartUI(input, tracker).init();
+
+        assertThat(new String(this.out.toByteArray()),
+                is(
+                        new StringBuilder()
+                                .append("0. Add new Item")
+                                .append(System.lineSeparator())
+                                .append("1. Show all items")
+                                .append(System.lineSeparator())
+                                .append("2. Edit item")
+                                .append(System.lineSeparator())
+                                .append("3. Delete item")
+                                .append(System.lineSeparator())
+                                .append("4. Find item by Id")
+                                .append(System.lineSeparator())
+                                .append("5. Find items by name")
+                                .append(System.lineSeparator())
+                                .append("6. Exit from program")
+                                .append(System.lineSeparator())
+                                .append("------------ Изменить заявку --------------")
+                                .append(System.lineSeparator())
+                                .append("------------ Заявка изменина! Новые данные заявки: -----------")
+                                .append(System.lineSeparator())
+                                .append("ID заявки: 12345")
+                                .append(System.lineSeparator())
+                                .append("Имя заявки: testName")
+                                .append(System.lineSeparator())
+                                .append("Описание заявки: testDesc")
+                                .append(System.lineSeparator())
+                                .append(" ")
+                                .append(System.lineSeparator())
+                                .append("0. Add new Item")
+                                .append(System.lineSeparator())
+                                .append("1. Show all items")
+                                .append(System.lineSeparator())
+                                .append("2. Edit item")
+                                .append(System.lineSeparator())
+                                .append("3. Delete item")
+                                .append(System.lineSeparator())
+                                .append("4. Find item by Id")
+                                .append(System.lineSeparator())
+                                .append("5. Find items by name")
+                                .append(System.lineSeparator())
+                                .append("6. Exit from program")
+                                .append(System.lineSeparator())
+                                .append("Вы выбрали Exit. До новых встреч!")
+                                .append(System.lineSeparator())
+                                .toString()
+                )
+        );
+    }
+
+    @Test
+    public void whenChoseDeleteItemThenSawMassageDeleteItemCompleted() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("startName", "startDesc", 1239594);
+        tracker.add(item);
+        item.setId("12345");
+        Input input = new StubInput(new String[]{"3", "12345", "6"});
+        new StartUI(input, tracker).init();
+
+        assertThat(new String(this.out.toByteArray()),
+                is(
+                        new StringBuilder()
+                                .append("0. Add new Item")
+                                .append(System.lineSeparator())
+                                .append("1. Show all items")
+                                .append(System.lineSeparator())
+                                .append("2. Edit item")
+                                .append(System.lineSeparator())
+                                .append("3. Delete item")
+                                .append(System.lineSeparator())
+                                .append("4. Find item by Id")
+                                .append(System.lineSeparator())
+                                .append("5. Find items by name")
+                                .append(System.lineSeparator())
+                                .append("6. Exit from program")
+                                .append(System.lineSeparator())
+                                .append("------------ Удаление заявки --------------")
+                                .append(System.lineSeparator())
+                                .append("------------ Заявка норме 12345 была удалена! -----------")
+                                .append(System.lineSeparator())
+                                .append("0. Add new Item")
+                                .append(System.lineSeparator())
+                                .append("1. Show all items")
+                                .append(System.lineSeparator())
+                                .append("2. Edit item")
+                                .append(System.lineSeparator())
+                                .append("3. Delete item")
+                                .append(System.lineSeparator())
+                                .append("4. Find item by Id")
+                                .append(System.lineSeparator())
+                                .append("5. Find items by name")
+                                .append(System.lineSeparator())
+                                .append("6. Exit from program")
+                                .append(System.lineSeparator())
+                                .append("Вы выбрали Exit. До новых встреч!")
+                                .append(System.lineSeparator())
+                                .toString()
+                )
+        );
+    }
+
+
+    @Test
+    public void whenChoseFindItemByIdThenSawInfoItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("startName", "startDesc", 1239594);
+        tracker.add(item);
+        item.setId("12345");
+        Input input = new StubInput(new String[]{"4", "12345", "6"});
+        new StartUI(input, tracker).init();
+
+        assertThat(new String(this.out.toByteArray()),
+                is(
+                        new StringBuilder()
+                                .append("0. Add new Item")
+                                .append(System.lineSeparator())
+                                .append("1. Show all items")
+                                .append(System.lineSeparator())
+                                .append("2. Edit item")
+                                .append(System.lineSeparator())
+                                .append("3. Delete item")
+                                .append(System.lineSeparator())
+                                .append("4. Find item by Id")
+                                .append(System.lineSeparator())
+                                .append("5. Find items by name")
+                                .append(System.lineSeparator())
+                                .append("6. Exit from program")
+                                .append(System.lineSeparator())
+                                .append("------------ Поиск заявки по ID --------------")
+                                .append(System.lineSeparator())
+                                .append("ID заявки: 12345")
+                                .append(System.lineSeparator())
+                                .append("Имя заявки: startName")
+                                .append(System.lineSeparator())
+                                .append("Описание заявки: startDesc")
+                                .append(System.lineSeparator())
+                                .append(" ")
+                                .append(System.lineSeparator())
+                                .append("0. Add new Item")
+                                .append(System.lineSeparator())
+                                .append("1. Show all items")
+                                .append(System.lineSeparator())
+                                .append("2. Edit item")
+                                .append(System.lineSeparator())
+                                .append("3. Delete item")
+                                .append(System.lineSeparator())
+                                .append("4. Find item by Id")
+                                .append(System.lineSeparator())
+                                .append("5. Find items by name")
+                                .append(System.lineSeparator())
+                                .append("6. Exit from program")
+                                .append(System.lineSeparator())
+                                .append("Вы выбрали Exit. До новых встреч!")
+                                .append(System.lineSeparator())
+                                .toString()
+                )
+        );
+    }
+
+    @Test
+    public void whenChoseEditItemAndChoseFindItemByNameThenSawInfoItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("startName", "startDesc", 1239594);
+        tracker.add(item);
+        item.setId("12345");
+        Input input = new StubInput(new String[]{"2", "12345", "testName", "testDesc", "5", "testName", "6"});
+        new StartUI(input, tracker).init();
+
+        assertThat(new String(this.out.toByteArray()),
+                is(
+                        new StringBuilder()
+                                .append("0. Add new Item")
+                                .append(System.lineSeparator())
+                                .append("1. Show all items")
+                                .append(System.lineSeparator())
+                                .append("2. Edit item")
+                                .append(System.lineSeparator())
+                                .append("3. Delete item")
+                                .append(System.lineSeparator())
+                                .append("4. Find item by Id")
+                                .append(System.lineSeparator())
+                                .append("5. Find items by name")
+                                .append(System.lineSeparator())
+                                .append("6. Exit from program")
+                                .append(System.lineSeparator())
+                                .append("------------ Изменить заявку --------------")
+                                .append(System.lineSeparator())
+                                .append("------------ Заявка изменина! Новые данные заявки: -----------")
+                                .append(System.lineSeparator())
+                                .append("ID заявки: 12345")
+                                .append(System.lineSeparator())
+                                .append("Имя заявки: testName")
+                                .append(System.lineSeparator())
+                                .append("Описание заявки: testDesc")
+                                .append(System.lineSeparator())
+                                .append(" ")
+                                .append(System.lineSeparator())
+                                .append("0. Add new Item")
+                                .append(System.lineSeparator())
+                                .append("1. Show all items")
+                                .append(System.lineSeparator())
+                                .append("2. Edit item")
+                                .append(System.lineSeparator())
+                                .append("3. Delete item")
+                                .append(System.lineSeparator())
+                                .append("4. Find item by Id")
+                                .append(System.lineSeparator())
+                                .append("5. Find items by name")
+                                .append(System.lineSeparator())
+                                .append("6. Exit from program")
+                                .append(System.lineSeparator())
+                                .append("------------ Поиск заявки по имени заявки --------------")
+                                .append(System.lineSeparator())
+                                .append("ID заявки: 12345")
+                                .append(System.lineSeparator())
+                                .append("Имя заявки: testName")
+                                .append(System.lineSeparator())
+                                .append("Описание заявки: testDesc")
+                                .append(System.lineSeparator())
+                                .append(" ")
+                                .append(System.lineSeparator())
+                                .append("0. Add new Item")
+                                .append(System.lineSeparator())
+                                .append("1. Show all items")
+                                .append(System.lineSeparator())
+                                .append("2. Edit item")
+                                .append(System.lineSeparator())
+                                .append("3. Delete item")
+                                .append(System.lineSeparator())
+                                .append("4. Find item by Id")
+                                .append(System.lineSeparator())
+                                .append("5. Find items by name")
+                                .append(System.lineSeparator())
+                                .append("6. Exit from program")
+                                .append(System.lineSeparator())
+                                .append("Вы выбрали Exit. До новых встреч!")
+                                .append(System.lineSeparator())
+                                .toString()
+                )
+        );
+    }
 }
