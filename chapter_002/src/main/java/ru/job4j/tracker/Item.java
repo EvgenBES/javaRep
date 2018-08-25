@@ -38,13 +38,17 @@ public class Item {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Item item = (Item) o;
-        return create == item.create &&
-                Objects.equals(id, item.id) &&
-                Objects.equals(name, item.name) &&
-                Objects.equals(description, item.description);
+        return create == item.create
+                && Objects.equals(id, item.id)
+                && Objects.equals(name, item.name)
+                && Objects.equals(description, item.description);
     }
 
     @Override

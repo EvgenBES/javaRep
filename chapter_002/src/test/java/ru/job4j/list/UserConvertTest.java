@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
 public class UserConvertTest {
 
     @Test
-    public void WhenAddListUserToHashMapThenGetUserByKey() {
+    public void whenAddListUserToHashMapThenGetUserByKey() {
         UserConvert userConvert = new UserConvert();
         List<User> listUser = new ArrayList<>();
         listUser.add(new User(11, "Evgeniy", "Tiraspol"));

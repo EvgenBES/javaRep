@@ -49,21 +49,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("test name", "desc", 1239594);
         tracker.add(item);
-
-        Input input = new StubInput(new String[]{
-                "0",                     //Main menu: "0. Add new Item"
-                "ItemName1",             //Add menu: "Введите имя заявки :"
-                "Desc1",                 //Add menu: "Введите описание заявки :"
-
-                "0",                     //Main menu: "0. Add new Item"
-                "ItemName2",             //Add menu: "Введите имя заявки :"
-                "Desc2",                 //Add menu: "Введите описание заявки :"
-
-                "3",                     //Main menu: "3. Delete item");
-                item.getId(),            //Add menu: "Введите номер удаляемой заявки:"
-                "6"                      //Main menu: "6. Exit Program");
-        });
-
+        Input input = new StubInput(new String[]{"0", "ItemName1", "Desc1", "0", "ItemName2", "Desc2", "3", item.getId(), "6"});
         new StartUI(input, tracker).init();
         List<Item> res = tracker.getAll();
         assertThat(res.size(), is(2));
@@ -73,22 +59,7 @@ public class StartUITest {
     @Test
     public void whenShowAllItemThenTrackerHasQuantityItemValue() {
         Tracker tracker = new Tracker();
-
-        Input input = new StubInput(new String[]{
-                "0",                     //Main menu: "0. Add new Item"
-                "ItemName1",             //Add menu: "Введите имя заявки :"
-                "Desc1",                 //Add menu: "Введите описание заявки :"
-
-                "0",                     //Main menu: "0. Add new Item"
-                "ItemName2",             //Add menu: "Введите имя заявки :"
-                "Desc2",                 //Add menu: "Введите описание заявки :"
-
-                "0",                     //Main menu: "0. Add new Item"
-                "ItemName3",             //Add menu: "Введите имя заявки :"
-                "Desc3",                 //Add menu: "Введите описание заявки :"
-                "6"                      //Main menu: "6. Exit Program");
-        });
-
+        Input input = new StubInput(new String[]{"0", "ItemName1", "Desc1", "0", "ItemName2", "Desc2", "0", "ItemName3", "Desc3", "6"});
         new StartUI(input, tracker).init();
         List<Item> res = tracker.getAll();
         assertThat(res.size(), is(3));
@@ -101,17 +72,7 @@ public class StartUITest {
         Item item = new Item("ItemName99", "desc", 1239594);
         tracker.add(item);
         item.setId("123456799");
-
-        Input input = new StubInput(new String[]{
-                "0",                     //Main menu: "0. Add new Item"
-                "ItemName2",             //Add menu: "Введите имя заявки:"
-                "Desc4",                 //Add menu: "Введите описание заявки:"
-
-                "4",                     //Main menu: "4. Find item by Id"
-                item.getId(),            //Add menu: "Введите номер заявки:"
-                "6"                      //Main menu: "6. Exit Program");
-        });
-
+        Input input = new StubInput(new String[]{"0", "ItemName2", "Desc4", "4", item.getId(), "6"});
         new StartUI(input, tracker).init();
         Item res = tracker.findById(item.getId());
         assertThat(res.getName(), is("ItemName99"));
@@ -123,17 +84,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = new Item("ItemName99", "desc", 1239594);
         tracker.add(item);
-
-        Input input = new StubInput(new String[]{
-                "0",                     //Main menu: "0. Add new Item"
-                "ItemName2",             //Add menu: "Введите имя заявки:"
-                "Desc4",                 //Add menu: "Введите описание заявки:"
-
-                "5",                     //Main menu: "4. Find item by Id"
-                item.getName(),          //Add menu: "Введите имя заявки:"
-                "6"                      //Main menu: "6. Exit Program");
-        });
-
+        Input input = new StubInput(new String[]{"0", "ItemName2", "Desc4", "5", item.getName(), "6"});
         new StartUI(input, tracker).init();
         List<Item> res = tracker.findByName("ItemName99");
         assertThat(res.size(), is(1));
