@@ -1,4 +1,8 @@
-﻿﻿# Обучающий проект Уровень "Стажер"
+﻿[![Build Status](https://travis-ci.org/EvgenyBut/4jProject.svg?branch=master)](https://travis-ci.org/EvgenyBut/4jProject)
+[![codecov](https://codecov.io/gh/EvgenyBut/4jProject/branch/master/graph/badge.svg)](https://codecov.io/gh/EvgenyBut/4jProject)
+
+
+﻿# Обучающий проект Уровень "Стажер" 
 Целью данных проектов является повышение уровня владения языка Java.
 
 Данные проекты были начат в конце июня 2018, цель пройти его за месяц, максимум 2.
