@@ -15,7 +15,11 @@ public class ListCompare implements Comparator<String> {
 
         for (int i = 0; i < left.length(); i++) {
             if (result == 0) {
-                result = Character.compare(left.charAt(i), right.charAt(i));
+                if (i < right.length()) {
+                    result = Character.compare(left.charAt(i), right.charAt(i));
+                } else {
+                    result = checkLength;
+                }
             } else {
                 break;
             }

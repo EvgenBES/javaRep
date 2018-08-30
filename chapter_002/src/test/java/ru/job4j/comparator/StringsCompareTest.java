@@ -63,4 +63,14 @@ public class StringsCompareTest {
         );
         assertThat(rst, lessThan(0));
     }
+
+    @Test
+    public void secondLiftWordMoreRightThanLiftShouldBePositive() {
+        ListCompare compare = new ListCompare();
+        int rst = compare.compare(
+                "Petrova",
+                "Petrov"
+        );
+        assertThat(rst, greaterThan(0));
+    }
 }
