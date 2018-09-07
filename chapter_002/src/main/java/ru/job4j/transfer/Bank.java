@@ -76,9 +76,7 @@ public class Bank {
                                  String destPassport, String dstRequisite, double amount) {
         boolean result = false;
 
-        if (srcPassport != null && srcRequisite != null
-                && destPassport != null && dstRequisite != null && amount > 0) {
-
+        if (amount > 0) {
             Account srcAccount = this.findAccountToBankByPassportAndRequisite(srcPassport, srcRequisite);
             Account destAccount = this.findAccountToBankByPassportAndRequisite(destPassport, dstRequisite);
 

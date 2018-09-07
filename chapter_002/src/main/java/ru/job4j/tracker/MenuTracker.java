@@ -15,7 +15,7 @@ import java.util.List;
 
 class FindItemsByName extends BaseAction {
 
-    protected FindItemsByName(int key, String name) {
+    public FindItemsByName(int key, String name) {
         super(key, name);
     }
 
@@ -37,17 +37,8 @@ class FindItemsByName extends BaseAction {
 
 
 public class MenuTracker {
-    /**
-     * @param хранит ссылку на объект .
-     */
     private Input input;
-    /**
-     * @param хранит ссылку на объект .
-     */
     private Tracker tracker;
-    /**
-     * @param хранит ссылку на массив типа UserAction.
-     */
     private List<UserAction> actions = new ArrayList<>();
 
     /**
@@ -105,7 +96,7 @@ public class MenuTracker {
 
     private class EditItem extends BaseAction {
 
-        protected EditItem(int key, String name) {
+        public EditItem(int key, String name) {
             super(key, name);
         }
 
@@ -133,7 +124,7 @@ public class MenuTracker {
 
     private static class DeleteItem extends BaseAction {
 
-        protected DeleteItem(int key, String name) {
+        public DeleteItem(int key, String name) {
             super(key, name);
         }
 
