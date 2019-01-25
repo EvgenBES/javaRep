@@ -1,4 +1,4 @@
-package ru.job4j.transfer;
+package ru.job4j;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package ru.job4j.transfer;
+package ru.job4j;
 
 /**
  * @author Evgeny Butov (mailto:but87@mail.ru)

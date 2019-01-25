@@ -2,10 +2,9 @@
 [![codecov](https://codecov.io/gh/EvgenyBut/4jProject/branch/master/graph/badge.svg)](https://codecov.io/gh/EvgenyBut/4jProject)
 
 
-﻿# Обучающий проект Уровень "Стажер" 
-Целью данных проектов является повышение уровня владения языка Java.
+﻿# Обучающий проект "Повторение Java" 
+Целью данных проектов является повторение и повышение уровня владения языка Java.
 
-Данные проекты были начат в конце июня 2018, цель пройти его за месяц, максимум 2.
 ***
 ### Темы:
 * Инструменты (Maven, jUnit, Git, IntelliJ Idea, Сheckstyle, JaCoCo, Travic CI)
